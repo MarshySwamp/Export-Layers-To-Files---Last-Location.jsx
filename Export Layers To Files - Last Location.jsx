@@ -150,7 +150,7 @@ if (ScriptUI.environment.keyboardState.shiftKey) {
             var prefFileValue = prefFileRead.readln(); // destination folder
             // alert('Preference file path:' + '\r' + prefFileValue);
         } else {
-            var prefFileValue = ('~/Documents'); // fallback destination folder
+            var prefFileValue = Folder(app.activeDocument.fullName.parent).fsName; // fallback destination folder
         }
     } catch (e) {
         alert("There was an error reading the .log file!");
@@ -2695,3 +2695,4 @@ function logToHeadLights(eventRecord)
 
 
 // End Export Layers To Files.jsx
+
