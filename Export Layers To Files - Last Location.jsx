@@ -110,8 +110,9 @@
 
 
 /////////////////////////
-// Additions by Stephen Marsh, 7th March 2022
+// Additions by Stephen Marsh, 7th March 2022, v2 updated 14th August 2022
 /////////////////////////
+
 // Hold down the shift key on script run to set the last save location
 if (ScriptUI.environment.keyboardState.shiftKey) {
     try {
@@ -132,27 +133,25 @@ if (ScriptUI.environment.keyboardState.shiftKey) {
         prefFile.lineFeed = prefFileLF;
         prefFile.write(prefFileValue.fsName);
         prefFile.close();
-	// Hide the pref file?
-        //prefFile.hidden = true;
-        // alert('Save location set to:' + '\r' + prefFileValue.fsName);
-        alert('Now run the "Export Layers To Files - Last Location" script again without the shift key...');
+        // Now call the script without the shift key...
+        var SCRIPTS_FOLDER = decodeURI(app.path + '/' + localize('$$$/ScriptingSupport/InstalledScripts=Presets/Scripts'));
+        $.evalFile(new File(SCRIPTS_FOLDER + '/Export Layers To Files - Last Location.jsx'));
     } catch (e) {
         alert("There was an error writing the .log file!");
     }
 } else {
     // Run the main script...
     try {
-        /////////////////////////
         if (File('~/Export Layers to Files Last Location.log').exists && File('~/Export Layers to Files Last Location.log').length > 0) {
             // Read the last save path preference file in the user home folder
             var prefFileRead = File('~/Export Layers to Files Last Location.log');
-            // Open the pref file: r = read mode | w = write mode | a = append | e = edit
+            // Open the pref file
             prefFileRead.open('r');
             // Read the value for the save path
-            var prefFileValue = prefFileRead.readln(); // destination folder
-            // alert('Preference file path:' + '\r' + prefFileValue);
+            var prefFileValue = prefFileRead.readln();
         } else {
-            var prefFileValue = Folder(app.activeDocument.fullName.parent).fsName; // fallback destination folder
+            // fallback destination folder
+            var prefFileValue = Folder(app.activeDocument.fullName.parent).fsName;
         }
     } catch (e) {
         alert("There was an error reading the .log file!");
@@ -1471,7 +1470,7 @@ function initExportInfo(exportInfo) {
 
 
         /////////////////////////
-        // Additions by Stephen Marsh, 7th March 2022
+        // Additions by Stephen Marsh, 7th March 2022, v2 updated 14th August 2022
         /////////////////////////
         exportInfo.destination = Folder(prefFileValue).fsName; // destination folder
 
@@ -1510,7 +1509,7 @@ function initFileNameDestination(exportInfo) {
     try {
 
         /////////////////////////
-        // Additions by Stephen Marsh, 7th March 2022
+        // Additions by Stephen Marsh, 7th March 2022, v2 updated 14th August 2022
         /////////////////////////
         exportInfo.destination = Folder(prefFileValue).fsName; // destination folder
 
@@ -2697,4 +2696,3 @@ function logToHeadLights(eventRecord)
 
 
 // End Export Layers To Files.jsx
-
