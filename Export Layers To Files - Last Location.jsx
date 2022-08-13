@@ -1,3 +1,7 @@
+/////////////////////////
+// Additions by Stephen Marsh, 7th March 2022, v2 updated 14th August 2022
+/////////////////////////
+
 // Copyright 2007.  Adobe Systems, Incorporated.  All rights reserved.
 
 // This script will export each layer in the document to a separate file.
@@ -183,7 +187,7 @@ if (ScriptUI.environment.keyboardState.shiftKey) {
 
     // UI strings to be localized
 
-    var strTitle = localize("$$$/JavaScripts/ExportLayersToFiles/Title=Export Layers To Files");
+    var strTitle = localize("$$$/JavaScripts/ExportLayersToFiles/Title=Layers To Files - Last Location");
 
     var strButtonRun = localize("$$$/JavaScripts/ExportLayersToFiles/Run=Run");
 
