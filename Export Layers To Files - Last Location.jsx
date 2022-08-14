@@ -32,7 +32,7 @@
 
 <javascriptresource>
 
-<name>$$$/JavaScripts/ExportLayersToFilesLastLocation/Menu=Layers to Files - Last Location...</name>
+<name>$$$/JavaScripts/ExportLayersToFilesLastLocation/Menu=Export Layers to Files - Last Location...</name>
 
     <category>scriptexport</category>
 
@@ -187,7 +187,7 @@ if (ScriptUI.environment.keyboardState.shiftKey) {
 
     // UI strings to be localized
 
-    var strTitle = localize("$$$/JavaScripts/ExportLayersToFiles/Title=Layers To Files - Last Location");
+    var strTitle = localize("$$$/JavaScripts/ExportLayersToFiles/Title=Export Layers To Files - Last Location");
 
     var strButtonRun = localize("$$$/JavaScripts/ExportLayersToFiles/Run=Run");
 
