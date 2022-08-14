@@ -139,7 +139,11 @@ if (ScriptUI.environment.keyboardState.shiftKey) {
         prefFile.close();
         // Now call the script without the shift key...
         var SCRIPTS_FOLDER = decodeURI(app.path + '/' + localize('$$$/ScriptingSupport/InstalledScripts=Presets/Scripts'));
-        $.evalFile(new File(SCRIPTS_FOLDER + '/Export Layers To Files - Last Location.jsx'));
+        if (File(SCRIPTS_FOLDER + '/Export Layers To Files - Last Location.jsx').exists) {
+            $.evalFile(new File(SCRIPTS_FOLDER + '/Export Layers To Files - Last Location.jsx'));
+        } else {
+            alert("The script file does not have the required filename:" + "\r" + "Export Layers To Files - Last Location.jsx")
+        }
     } catch (e) {
         alert("There was an error writing the .log file!");
     }
